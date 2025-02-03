@@ -1,13 +1,17 @@
+import React from 'react';
 import Item from "./Item";
 
-const ItemList = ({ items }) => {
-    // your code here
+const ItemList = ({ items, onDelete }) => {
     return (
-        <>
-            {items.map((item) => (
-                <Item key={item.id} item={item} />
-            ))}
-        </>
+        <div>
+            {items.length === 0 ? (
+                <p>No items.</p>
+            ) : (
+                items.map((item) => (
+                    <Item key={item.id} item={item} onDelete={onDelete} />
+                ))
+            )}
+        </div>
     );
 };
 
